@@ -10,8 +10,27 @@ module.exports = {
                 use:[
                     { loader: 'vue-loader'}
                 ]  
+            },
+            {
+                test:/\.css$/,
+                use:[
+                    { loader: 'vue-style-loader'},
+                    { loader: 'css-loader'}
+                ]  
+            },
+            {
+                test:/\.(ttf|png)$/,
+                use:[
+                    {loader:'file-loader'}
+                ]
             }
         ]
+    },
+    resolve: {
+        alias: {
+          '@': './components'
+        },
+        extensions: ['.vue','.js', '.json'] //自动补全文件的后缀
     },
     plugins:[
         new HtmlWebpackPlugin({
