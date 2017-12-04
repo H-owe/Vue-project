@@ -84,10 +84,18 @@
       /**
        * 属性:要监控的对象
        * 值:处理函数
+         $route只有路由发生变化,才会触发
        */
+      /*
+          es5
+          $route:function(newValue,oldValue){
+            console.log(newValue)
+          }
+      */
+       
       $route(newValue,oldValue){
         this.isShow(newValue.path)
-      }
+      } 
     }
   }
 </script>

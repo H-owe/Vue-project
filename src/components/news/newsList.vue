@@ -2,12 +2,12 @@
   <div>
       <ul class="mui-table-view">
 				<li v-for="item in newsList" :key="item.id" class="mui-table-view-cell mui-media">
-                    <router-link :to="'/news/newsinfo'+item.id">
+                    <router-link :to="'/news/newsinfo/'+item.id">
 					
 						<img class="mui-media-object mui-pull-left" :src="item.img_url">
 						<div class="mui-media-body">
 							<p class="title">{{item.title}}</p>
-							<p class='mui-ellipsis'><span>点击量:{{item.click}}</span> <span>{{item.add_time | fmtData('YYYY-MM-DD HH:mm')}}</span></p>
+							<p class='mui-ellipsis'><span>点击量:{{item.click}}</span> <span>{{item.add_time | fmtDate('YYYY-MM-DD HH:mm')}}</span></p>
 						</div>
 					</router-link>
 				</li>

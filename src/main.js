@@ -15,8 +15,8 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 
 //全局过滤器
-Vue.filter('fmtData',(input,formatString)=>{
-    const localTime = formatString || 'YYY-MM-DD HH:mm:ss'
+Vue.filter('fmtDate',(input,formatString)=>{
+    const localTime = formatString || 'YYYY-MM-DD HH:mm:ss'
     return moment(input).format(localTime);
 })
 
