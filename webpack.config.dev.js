@@ -19,7 +19,7 @@ module.exports = {
                 ]  
             },
             {
-                test:/\.(ttf|png)$/,
+                test:/\.(ttf|png|gif|svg)$/,
                 use:[
                     {loader:'file-loader'}
                 ]
