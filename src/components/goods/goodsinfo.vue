@@ -100,6 +100,7 @@ export default {
       //接收子组件传来的值
       getSubNumberCount(count){
           this.goodscount = count
+          console.log(this.goodscount)
       },
       //把值加到购物车
       addShopCart(){
@@ -108,7 +109,14 @@ export default {
                     position: 'middle',
                     duration: 2000
                });
-            bus.$emit('countChange',this.goodscount)
+            // bus.$emit('countChange',this.goodscount) //非父子组件传值
+
+            //将用户点击加入购物车的商品信息储存到仓库
+            const goods = {goodsId:this.$route.params.goodsId,count:this.goodscount}
+            //同步的往仓库中存数据
+            this.$store.commit('addGoods',goods)
+            //异步的往仓库中存数据
+            // this.$store.dispatch('addGoodsAsync',goods)
       }
 
   },

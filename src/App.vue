@@ -20,7 +20,7 @@
         <mt-tab-item>
           <router-link to="/shopcart">
             <img  src="http://img08.jiuxian.com/bill/2016/0224/42baf46987b6460bb43b3396e9941653.png">
-          <span  class="mui-badge"></span>
+          <span v-show="this.badge"  class="mui-badge">{{this.badge}}</span>
           </router-link>
         </mt-tab-item>
         <mt-tab-item>
@@ -57,23 +57,34 @@
 
     .mui-badge{
     position: absolute;
-    top: 10px;
-    right: 105px;
+    top: 0px;
+    right: 100px;
     background-color: red;
     color: white;
   }
 </style>
 
 <script>
+// import bus from './common/commonvue.js'
   export default{
     data(){
       return{
-        isshow:false
+        isshow:false,  //是否显示返回按钮
+        badge:0
       }
     },
     //重新加载后判断url
     created(){
       this.isShow(this.$route.path)
+      //非父子组件传值
+      // bus.$on('countChange',(count)=>{
+      //   this.badge += count
+      // })
+    },
+    
+    updated(){
+      //从仓库中取出数据
+      this.badge = this.$store.getters.getGoodstotalCount
     },
     methods: {
       goback(){
@@ -87,7 +98,8 @@
           this.isshow = false;
           this.tabbarShow = true
         }
-      }
+      },
+
       
     },
     watch:{
