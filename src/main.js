@@ -59,6 +59,8 @@ const router = new VueRouter ({
 const store = new Vuex.Store({
     state:{
         goodsList:[]
+        //[{goodsId:87,count:2},{goodsId:88,count:3},{goodsId:87,count:3}]
+    
     },
     getters:{
         //返回购物车加入商品的总数
