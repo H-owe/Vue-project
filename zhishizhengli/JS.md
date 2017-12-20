@@ -92,24 +92,31 @@ for(var i =1 ; i <= 9 ;i++){
 
 短路运算
 
-    如果参与逻辑运算的表达式，第一个式子就能决定整个逻辑表达式的结果，那么就不会去算第二个式子的值，这个就是短路运算。
-    var num1 = 10;
-    var num2 = 20;
-    var res = num1 < 0  &&  num2++ > 0;
-    console.log(res); //false
-    console.log(num2); //20
-    
-    var res2 = num1 > 0 || ++num2 > 0;
-    console.log(res2); //true
-    console.log(num2); //20
+```
+如果参与逻辑运算的表达式，第一个式子就能决定整个逻辑表达式的结果，那么就不会去算第二个式子的值，这个就是短路运算。
+var num1 = 10;
+var num2 = 20;
+var res = num1 < 0  &&  num2++ > 0;
+console.log(res); //false
+console.log(num2); //20
+
+var res2 = num1 > 0 || ++num2 > 0;
+console.log(res2); //true
+console.log(num2); //20
+```
 
 2.1 逻辑与表达式
 
-    找假，如果第一个式子能够转换成布尔类型的false的话， 那么整个逻辑与表达式的结果就是第一个式子的值;如果第一个式子不能转换成布尔类型的false的话，那么整个逻辑与表达式的结果就是第二个式子的值，不管第二个式子是什么
+```
+找假，如果第一个式子能够转换成布尔类型的false的话， 那么整个逻辑与表达式的结果就是第一个式子的值;如果第一个式子不能转换成布尔类型的false的话，那么整个逻辑与表达式的结果就是第二个式子的值，不管第二个式子是什么
+```
 
 2.2 逻辑或表达式
 
-    找真，如果参与逻辑或运算的第一个表达式能够转换成布尔类型的true的话，那么这整个逻辑或表达式的结果就是第一个式子的值；
+```
+找真，如果参与逻辑或运算的第一个表达式能够转换成布尔类型的true的话，那么这整个逻辑或表达式的结果就是第一个式子的值；
+```
+
 #### 数组
 
 常用方法：
@@ -129,7 +136,6 @@ toString() 把数组转换为字符串，并返回结果。
 toLocaleString() 把数组转换为本地数组，并返回结果。 
 unshift() 向数组的开头添加一个或更多元素，并返回新的长度。  
 valueOf() 返回数组对象的原始值 
-
 ```
 
 
@@ -205,13 +211,13 @@ var arr = [1,2,3,3,432,43,42,44,33,43,432,24,23];
 
 一个函数是另一个函数的参数，这个函数就是回调函数
 
-````javascript
+```javascript
 function f1(fn){
   	console.log(111);
     fn();
 }
 f1(test);
-````
+```
 
 #### 自调用函数
 
@@ -245,8 +251,11 @@ f1(test);
 
 #### 如果变量名 和函数名  重名会怎么样？
 
-    //a.如果变量有值，那么输出的就是变量的值。
-    //b.如果变量没有值，那么输出的就是这个函数
+```
+//a.如果变量有值，那么输出的就是变量的值。
+//b.如果变量没有值，那么输出的就是这个函数
+```
+
 this的指向（谁调用，指向谁）
 
 ```javascript
@@ -279,7 +288,7 @@ this的指向（谁调用，指向谁）
 
 ### 兼容
 
-````javascript
+```javascript
 //获取元素文本
 function getText(ele){
   if(ele.textContent == undefined){
@@ -423,7 +432,7 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff,endCol
 <!–[if lt IE 9]>
 <script src=”http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js”></script>
 <![endif]–>
-````
+```
 
 ![](IE filter值.png)
 

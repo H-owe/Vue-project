@@ -169,6 +169,7 @@ M：模型（Model），处理数据 (来自服务器端的数据data)
 	<script src="./my-component.js"></script>
 	<style src="./my-component.css"></style>
 ```
+
 #### 父子组件
 
 父子组件的关系可以总结为 **prop 向下传递，事件向上传递**
@@ -203,12 +204,12 @@ Vue.component('child', {
 
 使用一个空的 Vue 实例作为事件总线
 
-````javascript
+```javascript
 var bus = new Vue()
 
 // 触发组件 A 中的事件
 bus.$emit('id-selected', 1)//参数：事件名，参数
-````
+```
 
 ```javascript
 // 在组件 B 创建的钩子中监听事件
@@ -275,7 +276,7 @@ this.$http.get(url).then(e=>{
 })
 ```
 
-````javascript
+```javascript
 //(post请求)
 const url = '...'
 /*参数1：url
@@ -286,7 +287,7 @@ this.$http.post(url,{name:'xxx',age:22},{emulateJSON:true}).then(e=>{
   this.xxx = e.data.message
   //console.log(this.xxx)
 })
-````
+```
 
 ```javascript
 //jsonp请求
@@ -330,7 +331,6 @@ var vm = new Vue({
         router
         // 缩写  router:router
     })
-
 ```
 
 #### 编程式导航
@@ -385,7 +385,7 @@ Object.defineProperty(obj, prop, descriptor)
 
 数据描述符是一个拥有可写或不可写值的属性。存取描述符是由一对 getter-setter 函数功能来描述的属性。描述符必须是两种形式之一；不能同时是两者。
 
-````javascript
+```javascript
 var o = {};
 
 o.a = 1;
@@ -407,7 +407,7 @@ Object.defineProperty(o, "a", {
   configurable : false,
   enumerable : false
 });
-````
+```
 
 Setters 和 Getters
 
