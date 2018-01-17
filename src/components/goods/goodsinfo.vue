@@ -12,7 +12,7 @@
             <subnumber v-on:countChange="getSubNumberCount" v-if="goodsInfo.stock_quantity"></subnumber>
 
             <mt-button type="primary">立即购买</mt-button>
-            <mt-button @click="addShopCart()" type="danger">加入购物车</mt-button>
+            <mt-button @click="addShopCart()" ref="aaa" type="danger" v-bind:disabled="!flag">加入购物车</mt-button>
         </div>
       <!-- 3.0 商品参数 -->
         <div class="goodsParams">
@@ -72,7 +72,8 @@ export default {
   data(){
       return{
           goodsInfo:[],
-          goodscount:1
+          goodscount:1,
+          flag:true
       }
   },
 
@@ -103,22 +104,31 @@ export default {
           console.log(this.goodscount)
       },
       //把值加到购物车
+      
       addShopCart(){
+          if(this.flag==false){
+              return 
+          }
+          this.flag=false;
           Toast({
                     message: '加入购物车成功',
                     position: 'middle',
-                    duration: 2000
+                    duration: 2000,
+
                });
             // bus.$emit('countChange',this.goodscount) //非父子组件传值
-
+            this.$refs.type = ''
             //将用户点击加入购物车的商品信息储存到仓库
             const goods = {goodsId:this.$route.params.goodsId,count:this.goodscount}
             //同步的往仓库中存数据
             this.$store.commit('addGoods',goods)
             //异步的往仓库中存数据
             // this.$store.dispatch('addGoodsAsync',goods)
+            setTimeout(() => {
+             this.flag=true
+            }, 2000)
       }
-
+       
   },
   components:{
       subswipe,

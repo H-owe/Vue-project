@@ -61,11 +61,15 @@ export default {
   data(){
       return {
           commentList:[],
-          pageIndex:1
+          pageIndex:1,
+          comment:''
       }
   },
+
   props:['commentId'],
+
   created(){
+     
       this.getCommentListData()
   },
   filters:{
@@ -76,6 +80,7 @@ export default {
   },
   methods:{
       getCommentListData(){
+          
           const url = common.apihost+"api/getcomments/"+this.commentId+"?pageindex="+this.pageIndex
           console.log(url)
           this.$http.get(url).then(response=>{
@@ -94,8 +99,8 @@ export default {
       //提交评论
       postComment(){
           //获取评论内容
-          const content = this.$refs.textAreaRef.value
-
+        
+            const content = this.$refs.textAreaRef.value
           const url = common.apihost+"api/postcomment/"+this.commentId
           this.$http.post(url,{content:content},{emulateJSON:true}).then(response=>{
               //清空textarea中的内容
@@ -112,5 +117,6 @@ export default {
           })
       }
   }
+  
 }
 </script>

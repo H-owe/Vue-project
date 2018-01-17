@@ -1,7 +1,7 @@
 <template>
   <div>
       <div @click="minus()" class="left">-</div>
-      <div class="middle">{{count}}</div>
+      <div class="middle">{{pay}}</div>
       <div @click="add()" class="right">+</div>
   </div>
 </template>
@@ -55,6 +55,13 @@ export default {
       notify(){
           //发送就是触发事件，然后传值
           this.$emit('countChange',this.count)
+      }
+  },
+  computed:{
+      pay:function(){
+          if (this.count==1) {
+              return this.count=2
+          }
       }
   }
 
